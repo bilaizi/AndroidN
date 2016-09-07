@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerViewAdapter mRecyclerViewAdapter;
 
     private List<User> mUserList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,14 +54,16 @@ public class MainActivity extends AppCompatActivity {
         mBinding.setUserList(mUserList);
 
         mBinding.idsTv.setText("IDS Text OK");
-        mBinding.viewStub.setOnInflateListener(new ViewStub.OnInflateListener() {
-            @Override
-            public void onInflate(ViewStub stub, View inflated) {
-                TestViewStubBinding viewDataBinding = DataBindingUtil.bind(inflated);
-                User user = new User("xx", "gg", true);
-                viewDataBinding.setUser(user);
-            }
-        });
+        mBinding.viewStub.setOnInflateListener(
+                new ViewStub.OnInflateListener() {
+                    @Override
+                    public void onInflate(ViewStub stub, View inflated) {
+                        TestViewStubBinding viewDataBinding = DataBindingUtil.bind(inflated);
+                        User user = new User("xx", "gg", true);
+                        viewDataBinding.setUser(user);
+                    }
+                }
+        );
 
         initRecyclerAdapter();
 
