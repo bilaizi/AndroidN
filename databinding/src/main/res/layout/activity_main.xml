@@ -144,10 +144,10 @@
             android:layout_height="wrap_content" />
 
         <ViewStub
-            android:id="@+id/viewstub"
+            android:id="@+id/view_stub"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout="@layout/test_viewstub" />
+            android:layout="@layout/test_view_stub" />
 
 
         <android.support.v7.widget.RecyclerView

@@ -13,14 +13,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.view.ViewStub;
 
-
 import com.example.databinding.adapter.RecyclerViewAdapter;
-
 import com.example.databinding.databinding.ActivityMainBinding;
-
-import com.example.databinding.databinding.TestViewstubBinding;
+import com.example.databinding.databinding.TestViewStubBinding;
 import com.example.databinding.view.DividerItemDecoration;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,11 +53,10 @@ public class MainActivity extends AppCompatActivity {
         mBinding.setUserList(mUserList);
 
         mBinding.idsTv.setText("IDS Text OK");
-
-        mBinding.viewstub.setOnInflateListener(new ViewStub.OnInflateListener() {
+        mBinding.viewStub.setOnInflateListener(new ViewStub.OnInflateListener() {
             @Override
             public void onInflate(ViewStub stub, View inflated) {
-                TestViewstubBinding viewDataBinding = DataBindingUtil.bind(inflated);
+                TestViewStubBinding viewDataBinding = DataBindingUtil.bind(inflated);
                 User user = new User("xx", "gg", true);
                 viewDataBinding.setUser(user);
             }
@@ -137,8 +132,8 @@ public class MainActivity extends AppCompatActivity {
                     mList.add("You");
                     mList.add("5656565");
                     mBinding.idsTv.setText("IDS Text OK, I can change");
-                    if (!mBinding.viewstub.isInflated()) {
-                        mBinding.viewstub.getViewStub().inflate();
+                    if (!mBinding.viewStub.isInflated()) {
+                        mBinding.viewStub.getViewStub().inflate();
                     }
                     mRecyclerViewAdapter.clear();
                     List<User> newUsers = new ArrayList<>();
