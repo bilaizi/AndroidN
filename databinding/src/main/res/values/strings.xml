@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">databinding</string>
+    <string name="format_string">you are %1$s, i am %2$s.</string>
+</resources>

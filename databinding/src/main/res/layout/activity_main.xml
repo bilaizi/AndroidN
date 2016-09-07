@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.example.databinding.User" />
+
+        <import type="com.example.databinding.Handlers" />
+
+        <import type="com.example.databinding.Presenter" />
+
+        <import type="com.example.databinding.Son" />
+
+        <import type="java.util.List" />
+
+        <import type="android.databinding.ObservableArrayMap" />
+
+        <import type="android.databinding.ObservableArrayList" />
+
+
+        <variable
+            name="user"
+            type="User" />
+
+        <variable
+            name="son"
+            type="Son" />
+
+        <variable
+            name="handlers"
+            type="Handlers" />
+
+        <variable
+            name="presenter"
+            type="Presenter" />
+
+        <variable
+            name="userList"
+            type="List" />
+
+        <variable
+            name="map"
+            type="ObservableArrayMap" />
+
+        <variable
+            name="list"
+            type="ObservableArrayList" />
+
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{handlers::onClickFriend}"
+            android:text="@{user.firstName}" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view)->presenter.onClickAA(view)}"
+            android:text="Heiha" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.firstName}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.lastName}" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{user.isFriends ? handlers.onClickFriend : handlers.onClickEnemy}"
+            android:text="isFriends" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{((User) userList.get(userList.size()-1)).firstName}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Handlers.toUpperString(user.firstName)}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{context.getPackageName()}" />
+
+        <include
+            layout="@layout/layout_sex"
+            bind:user="@{user}" />
+
+        <include
+            layout="@layout/layout_intresting"
+            bind:user="@{user}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/format_string(user.firstName, user.lastName)}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@plurals/plurals_test(2,2)}" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/holo_blue_dark" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{son.firstName + ' ' + son.lastName + ' ' + son.age}" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{"company:" + map["company"] + " email:" + map["email"] }' />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{list[0] + " phone:" + list[1] }' />
+
+        <TextView
+            android:id="@+id/ids_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ViewStub
+            android:id="@+id/viewstub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout="@layout/test_viewstub" />
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recylerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</layout>
